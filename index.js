@@ -24,10 +24,9 @@ class ServerlessIgnore {
 
   ignoreFiles() {
     try {
-      this.serverless.cli.log('SERVERLESS-IGNORE: Loading ignore file...')
-      var config = this.serverless.service.custom['ignore'];
-      var configFound = typeof config == 'object'
-      var ignoreFilePath = configFound && typeof config.file !== 'undefined' ? config.file : '.slsignore'
+      var config = typeof this.serverless.service.custom !== 'undefined' ? this.serverless.service.custom['ignore'] : {};
+      var configFound = typeof config.file !== 'undefined'
+      var ignoreFilePath = configFound ? config.file : '.slsignore'
       var ignoreFile = fs.readFileSync(ignoreFilePath, 'utf8').toString()
       var filesToIgnore = ignore().add(ignoreFile)._rules
       this.serverless.cli.log('SERVERLESS-IGNORE: Loaded ' + ignoreFilePath)
