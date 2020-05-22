@@ -25,7 +25,7 @@ class ServerlessIgnore {
   ignoreFiles() {
     try {
       var config = typeof this.serverless.service.custom !== 'undefined' ? this.serverless.service.custom['ignore'] : {};
-      var configFound = typeof config.file !== 'undefined'
+      var configFound =  config !== undefined && typeof config.file !== 'undefined'
       var ignoreFilePath = configFound ? config.file : '.slsignore'
       var ignoreFile = fs.readFileSync(ignoreFilePath, 'utf8').toString()
       var filesToIgnore = ignore().add(ignoreFile)._rules
