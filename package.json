@@ -1,5 +1,5 @@
 {
-  "name": "serverless-ignore",
+  "name": "serverless-plugin-slsignore",
   "version": "0.1.5",
   "description": "Add an ignore file to your serverless projects (.slsignore)",
   "main": "index.js",
@@ -11,12 +11,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nya1/serverless-ignore.git"
+    "url": "https://github.com/zodman/serverless-plugin-slsignore.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "nya1 <nya1@pm.me>",
+  "author": "zodman <andres@python3.ninja>",
   "license": "MIT",
   "dependencies": {
     "ignore": "^3.3.8"
