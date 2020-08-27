@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-slsignore",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Add an ignore file to your serverless projects (.slsignore)",
   "main": "index.js",
   "keywords": [
