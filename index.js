@@ -9,14 +9,6 @@ class ServerlessIgnore {
 
     this.serverless.service.package = this.serverless.service.package || {}
 
-    this.commands = {
-      deploy: {
-        lifecycleEvents: [
-          'package'
-        ]
-      },
-    };
-
     this.hooks = {
       'package:cleanup': this.ignoreFiles.bind(this)
     };
