@@ -7,7 +7,9 @@
     "serverless-ignore",
     "ignore serverless",
     "gitignore serverless",
-    "slsignore"
+    "slsignore",
+    "ignore sls",
+    "exclude serverless"
   ],
   "repository": {
     "type": "git",
