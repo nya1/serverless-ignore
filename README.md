@@ -15,6 +15,10 @@ Serverless plugin to ignore files like a .gitignore
 
 `npm install --save-dev serverless-ignore`
 
+Note:
+
+* for serverless version < 2 use version ^0.1.6
+
 #### Usage
 
 Add `serverless-ignore` to your plugins list (serverless.yml)

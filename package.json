@@ -1,13 +1,15 @@
 {
   "name": "serverless-ignore",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Add an ignore file to your serverless projects (.slsignore)",
   "main": "index.js",
   "keywords": [
     "serverless-ignore",
     "ignore serverless",
     "gitignore serverless",
-    "slsignore"
+    "slsignore",
+    "ignore sls",
+    "exclude serverless"
   ],
   "repository": {
     "type": "git",
