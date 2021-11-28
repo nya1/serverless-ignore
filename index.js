@@ -7,11 +7,11 @@ class ServerlessIgnore {
     this.serverless = serverless;
     this.options = options;
 
-    // load service package object so we can edit it later
+    // load service package object with a default so we can edit it later
     this.serverless.service.package = this.serverless.service.package || {}
 
     this.hooks = {
-      // bind hook with our own function
+      // ignore file will be triggered on package:cleanup
       'package:cleanup': this.ignoreFiles.bind(this)
     };
   }
@@ -27,17 +27,15 @@ class ServerlessIgnore {
       
       // set exclude dev
       if (!configFound || (configFound && config.excludeDev == true)) this.serverless.service.package.excludeDevDependencies = true
-      
-      // using package.patterns as suggested for 2+ sls versions
-      // ref https://www.serverless.com/framework/docs/deprecations#new-way-to-define-packaging-patterns
-      if (typeof this.serverless.service.package.patterns === 'undefined') {
-        this.serverless.service.package.patterns = []
+   
+      if (typeof this.serverless.service.package.exclude === 'undefined') {
+        this.serverless.service.package.exclude = []
       }
       filesToIgnore.forEach((file) => {
         if (file.negative == true) return
-        var fileIgnore = file.origin
+        const fileIgnore = file.origin
         this.serverless.cli.log("\t - " + fileIgnore);
-        this.serverless.service.package.patterns.push(fileIgnore);
+        this.serverless.service.package.exclude.push(fileIgnore);
       })
     } catch (e) {
       console.error('\n Serverless Ignore Error --------------------------------------\n', '  ', e.message)
